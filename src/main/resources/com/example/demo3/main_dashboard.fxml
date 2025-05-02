@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<StackPane alignment="CENTER" prefHeight="600.0" prefWidth="800.0"
+           xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.demo3.MainDashboardController">
+    <children>
+        <!-- Background Image -->
+        <ImageView fx:id="generatedImageView" fitWidth="800.0" fitHeight="200.0" preserveRatio="false">
+            <image>
+                <Image url="/com/example/demo3/images/generated_nail_image.png"/>
+            </image>
+        </ImageView>
+
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+
+            <StackPane alignment="TOP_CENTER">
+                <children>
+                    <!-- Welcome Heading -->
+                    <Label text="Welcome to Our Payroll System">
+                        <StackPane.margin>
+                            <Insets top="20.0"/>
+                        </StackPane.margin>
+                    </Label>
+                </children>
+            </StackPane>
+
+            <!-- Registration Form -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Registration Form"/>
+                <TextField fx:id="registerUsernameField" promptText="Username"/>
+                <PasswordField fx:id="registerPasswordField" promptText="Password"/>
+                <Button text="Register" onAction="#registerAction"/>
+            </VBox>
+
+            <!-- Login Form -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Login"/>
+                <TextField fx:id="usernameField" promptText="Username"/>
+                <PasswordField fx:id="passwordField" promptText="Password"/>
+                <Label text="Select Role:"/>
+                <ChoiceBox fx:id="roleChoiceBox"/>
+                <Button text="Login" onAction="#loginAction"/>
+            </VBox>
+        </VBox>
+    </children>
+</StackPane>

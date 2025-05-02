@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo3.AdminDashboardController">
+
+    <top>
+        <HBox style="-fx-background-color: #8B0000;" alignment="CENTER_LEFT" spacing="20.0"
+              BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10.0" bottom="10.0" left="20.0" right="20.0"/>
+            </padding>
+            <children>
+                <Label text="Payroll Management System" style="-fx-text-fill: white;">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="welcomeLabel" text="Welcome, Admin" style="-fx-text-fill: white;"/>
+                <Button text="Logout" onAction="#logout" style="-fx-background-color: transparent; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox style="-fx-background-color: black;" prefWidth="150.0" spacing="10.0">
+            <padding>
+                <Insets top="20.0" bottom="20.0" left="10.0" right="10.0"/>
+            </padding>
+            <children>
+                <Button text="Dashboard" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToDashboard"/>
+                <Button text="Manage Employees" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToManageEmployees"/>
+                <Button text="Process Payroll" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToProcessPayroll"/>
+                <Button text="Generate Payslips" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToGeneratePayslips"/>
+                <Button text="Reports &amp; Charts" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToReportsCharts"/>
+                <Button text="Export Data (PDF/CSV)" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#goToExportData"/>
+                <Button text="Logout" style="-fx-text-fill: white; -fx-background-color: transparent;"
+                        onAction="#logout"/>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20.0" alignment="CENTER">
+            <padding>
+                <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+            </padding>
+            <children>
+                <HBox spacing="20.0">
+                    <children>
+                        <Label text="Total Employees:">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="totalEmployeesLabel" text="[Total Employees]"/>
+                        <Label text="Total Monthly Payroll:">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="totalPayrollLabel" text="[Total Payroll]"/>
+                    </children>
+                </HBox>
+
+                <BarChart fx:id="salaryByDepartmentChart">
+                    <xAxis>
+                        <CategoryAxis label="Department"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Salary"/>
+                    </yAxis>
+                </BarChart>
+
+                <PieChart fx:id="payrollBreakdownChart"/>
+
+                <LineChart fx:id="payrollTrendChart">
+                    <xAxis>
+                        <CategoryAxis label="Month"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Payroll"/>
+                    </yAxis>
+                </LineChart>
+
+                <HBox spacing="20.0">
+                    <children>
+                        <Button text="Add Employee" onAction="#addEmployee"/>
+                        <Button text="Process Payroll" onAction="#processPayroll"/>
+                        <Button text="Generate Payslip" onAction="#generatePayslip"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+
+</BorderPane>
